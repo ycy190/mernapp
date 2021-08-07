@@ -34,7 +34,7 @@ class CreateBook extends Component {
     };
 
     axios
-      .post('https://sammernapp.herokuapp.com'+process.env.PORT+'/api/books', data)
+      .post('https://sammernapp.herokuapp.com:'+process.env.PORT+'/api/books', data)
       .then(res => {
         this.setState({
           title: '',
