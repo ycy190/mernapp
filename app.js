@@ -1,4 +1,10 @@
 // app.js
+//The process order is super super super important,
+//for example has to initialize app with express first
+//then introduce model and route
+//then set the path for heroku accordingly and connect to db
+//then create middleware
+//finally listen to port
 
 const express = require('express');
 const connectDB = require('./config/db');
@@ -32,11 +38,11 @@ connectDB();
 
 
 
-
+//middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// use Routes
+
 
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

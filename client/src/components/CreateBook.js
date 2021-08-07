@@ -12,7 +12,7 @@ class CreateBook extends Component {
       isbn:'',
       author:'',
       description:'',
-      published_date:'',
+     
       publisher:''
     };
   }
@@ -29,7 +29,7 @@ class CreateBook extends Component {
       isbn: this.state.isbn,
       author: this.state.author,
       description: this.state.description,
-      published_date: this.state.published_date,
+      
       publisher: this.state.publisher
     };
 
@@ -41,7 +41,7 @@ class CreateBook extends Component {
           isbn:'',
           author:'',
           description:'',
-          published_date:'',
+         
           publisher:''
         })
         this.props.history.push('/');
@@ -114,16 +114,7 @@ class CreateBook extends Component {
                   />
                 </div>
 
-                <div className='form-group'>
-                  <input
-                    type='date'
-                    placeholder='published_date'
-                    name='published_date'
-                    className='form-control'
-                    value={this.state.published_date}
-                    onChange={this.onChange}
-                  />
-                </div>
+                
                 <div className='form-group'>
                   <input
                     type='text'
