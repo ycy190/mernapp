@@ -8,12 +8,14 @@ const PORT = process.env.PORT || 8089;
 
 // routes
 const books = require('./routes/api/books');
-app.use('/api/books', books);
 
 const app = express();
 
 // cors
 app.use(cors());
+app.use('/api/books', books);
+
+
 const path = require("path");
 
 
