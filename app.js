@@ -3,6 +3,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 var cors = require('cors');
+const PORT = process.env.PORT || 8089;
 
 // routes
 const books = require('./routes/api/books');
@@ -23,7 +24,7 @@ app.get("*", function (request, response) {
 connectDB();
 
 // cors
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));
@@ -32,6 +33,5 @@ app.use(express.json({ extended: false }));
 // use Routes
 app.use('/api/books', books);
 
-const PORT = process.env.PORT || 8089;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
