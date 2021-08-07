@@ -10,7 +10,8 @@ const books = require('./routes/api/books');
 
 const app = express();
 
-
+// cors
+app.use(cors());
 const path = require("path");
 app.use((req, res, next) => {
 
@@ -23,20 +24,18 @@ app.use((req, res, next) => {
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 // Step 2:
 app.get("*", function (request, response) {
-  response.header("Access-Control-Allow-Origin", "*");
-  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
 // Connect Database
 connectDB();
 
-// cors
-app.use(cors());
 
-// Init Middleware
-app.use(express.json({ extended: false }));
 
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // use Routes
 app.use('/api/books', books);
