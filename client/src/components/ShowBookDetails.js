@@ -14,7 +14,7 @@ class showBookDetails extends Component {
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('https://mernappsam.herokuapp.com:8080/api/books/'+this.props.match.params.id)
+      .get('https://mernappsam.herokuapp.com:8082/api/books/'+this.props.match.params.id)
       .then(res => {
         // console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
@@ -28,7 +28,7 @@ class showBookDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('https://mernappsam.herokuapp.com:8080/api/books/'+id)
+      .delete('https://mernappsam.herokuapp.com:8082/api/books/'+id)
       .then(res => {
         this.props.history.push("/");
       })
