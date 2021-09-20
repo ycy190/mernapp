@@ -5,8 +5,7 @@
 //then set the path for heroku accordingly and connect to db
 //then create middleware
 //finally listen to port
-import LogRocket from 'logrocket';
-LogRocket.init('lxvlct/mernapp');
+
 const express = require('express');
 const connectDB = require('./config/db');
 // Connect Database
@@ -34,10 +33,6 @@ const path = require("path");
 
 
 
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
-     next();
-});
 // Step 1:
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 // Step 2:
