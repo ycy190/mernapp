@@ -8,9 +8,14 @@
 
 const express = require('express');
 const connectDB = require('./config/db');
+// Connect Database
+connectDB();
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const PORT = process.env.PORT || 8089;
+const PORT = process.env.PORT || 8082;
+
+
+
 
 // routes
 const books = require('./routes/api/books');
@@ -32,10 +37,6 @@ app.get("*", function (request, response) {
 
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
-
-// Connect Database
-connectDB();
-
 
 
 //middleware

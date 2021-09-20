@@ -14,7 +14,7 @@ class showBookDetails extends Component {
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get('https://sammernapp.herokuapp.com/api/books/'+this.props.match.params.id)
+      .get('http://localhost:8082/api/books/'+this.props.match.params.id)
       .then(res => {
         // console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
@@ -28,7 +28,7 @@ class showBookDetails extends Component {
 
   onDeleteClick (id) {
     axios
-      .delete('https://sammernapp.herokuapp.com/api/books/'+id)
+      .delete('http://localhost:8082/api/books/'+id)
       .then(res => {
         this.props.history.push("/");
       })
@@ -72,9 +72,13 @@ class showBookDetails extends Component {
             <td>Publisher</td>
             <td>{ book.publisher }</td>
           </tr>
-          
           <tr>
             <th scope="row">5</th>
+            <td>Published Date</td>
+            <td>{ book.published_date }</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
             <td>Description</td>
             <td>{ book.description }</td>
           </tr>
