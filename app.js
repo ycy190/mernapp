@@ -10,15 +10,19 @@ const express = require('express');
 const connectDB = require('./config/db');
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const PORT = process.env.PORT || 8089;
+const PORT = process.env.PORT || 8082;
+
+
+
+const app = express();
+// cors
+app.use(cors());
+app.use(express.json());//this one line really solves the problem!! where axios post was not working but 
+//now it works like a charm
 
 // routes
 const books = require('./routes/api/books');
 
-const app = express();
-
-// cors
-app.use(cors());
 app.use('/api/books', books);
 
 

@@ -34,8 +34,12 @@ class CreateBook extends Component {
     };
 
     axios
-      .post('https://sammernapp.herokuapp.com/api/books', data)
+      .post('http://localhost:8082/api/books', data ,{headers: {
+        // Overwrite Axios's automatically set Content-Type
+        'Content-Type': 'application/json'
+      }})
       .then(res => {
+        
         this.setState({
           title: '',
           isbn:'',
@@ -43,11 +47,13 @@ class CreateBook extends Component {
           description:'',
          
           publisher:''
-        })
+        });
         this.props.history.push('/');
       })
       .catch(err => {
+        console.log(err.response);
         console.log("Error in CreateBook!");
+        
       })
   };
 
