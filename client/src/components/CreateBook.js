@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import fetch from "node-fetch";
 
 
 class CreateBook extends Component {
@@ -33,22 +34,19 @@ class CreateBook extends Component {
       publisher: this.state.publisher
     };
 
-    axios
-      .post('https://sammernapp.herokuapp.com/api/books', data)
-      .then(res => {
-        this.setState({
-          title: '',
-          isbn:'',
-          author:'',
-          description:'',
-         
-          publisher:''
-        })
-        this.props.history.push('/');
+    await fetch('https://sammernapp.herokuapp.com/api/books', {
+      method: 'POST', body: JSON.stringify({
+        title: "homework", isbn: "asfjlkj"
+        })})
+      .then(res => res.json())
+      .then(data => {
+      console.log(data) 
       })
-      .catch(err => {
-        console.log("Error in CreateBook!");
-      })
+
+    
+
+
+    
   };
 
   render() {
