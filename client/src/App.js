@@ -6,8 +6,7 @@ import CreateBook from './components/CreateBook';
 import ShowBookList from './components/ShowBookList';
 import ShowBookDetails from './components/ShowBookDetails';
 import UpdateBookInfo from './components/UpdateBookInfo';
-import LogRocket from 'logrocket';
-LogRocket.init('lxvlct/mernapp');
+
 class App extends Component {
   render() {
     return (
