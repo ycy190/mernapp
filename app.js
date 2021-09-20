@@ -32,8 +32,11 @@ app.use(cors({ origin: "https://sammernapp.herokuapp.com/", credentials: true })
 const path = require("path");
 
 
-app.options('*', cors());
 
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+     next();
+});
 // Step 1:
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 // Step 2:

@@ -42,10 +42,9 @@ class CreateBook extends Component {
           isbn:'',
           author:'',
           description:'',
-         
           publisher:''
         })
-        //this.props.history.push('/');
+        this.props.history.push('/');
       })
       .catch(err => {
         console.log("Error in CreateBook!");
