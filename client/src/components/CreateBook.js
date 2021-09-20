@@ -34,7 +34,7 @@ class CreateBook extends Component {
       publisher: this.state.publisher
     };
 
-    await fetch('https://sammernapp.herokuapp.com/api/books', {
+     fetch('https://sammernapp.herokuapp.com/api/books', {
       method: 'POST', body: JSON.stringify({
         title: "homework", isbn: "asfjlkj"
         })})
