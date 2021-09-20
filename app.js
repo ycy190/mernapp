@@ -8,29 +8,21 @@
 
 const express = require('express');
 const connectDB = require('./config/db');
-// Connect Database
-connectDB();
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const PORT = process.env.PORT || 8082;
-
-
-
+const PORT = process.env.PORT || 8089;
 
 // routes
 const books = require('./routes/api/books');
 
 const app = express();
 
-
 // cors
 app.use(cors());
 app.use('/api/books', books);
 
-app.use(cors({ origin: "https://sammernapp.herokuapp.com/", credentials: true }))
 
 const path = require("path");
-
 
 
 // Step 1:
@@ -41,9 +33,13 @@ app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
+// Connect Database
+connectDB();
+
+
 
 //middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
