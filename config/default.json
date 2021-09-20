@@ -2,5 +2,5 @@
 
 {
     "mongoURI":
-    "mongodb+srv://sam:Ycy1q2w3e4r@cluster0.8yx5a.mongodb.net/Books?retryWrites=true&w=majority"
+    "mongodb+srv://sam:Ycy1q2w3e4r@cluster0.8yx5a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
   }
