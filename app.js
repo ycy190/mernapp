@@ -22,10 +22,12 @@ const books = require('./routes/api/books');
 
 const app = express();
 
+
 // cors
 app.use(cors());
 app.use('/api/books', books);
 
+app.use(cors({ origin: "https://sammernapp.herokuapp.com/", credentials: true }))
 
 const path = require("path");
 
