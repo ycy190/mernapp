@@ -30,6 +30,8 @@ app.use('/api/books', books);
 const path = require("path");
 
 
+app.options('*', cors());
+
 // Step 1:
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 // Step 2:
